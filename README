@@ -1,0 +1,15 @@
+Enhanced Host Controller Interface (EHCI-SPECIFICATION) is a high-speed controller standard applicable to USB 2.0. 
+The existence of UHCI and OHCI based systems, as existed previously, entailed greater complexity and costs than necessary. 
+Consequently, the USB-IF insisted on a public specification for EHCI. 
+Intel hosted EHCI conformance testing and this helped to prevent incursion of proprietary features
+
+https://en.wikipedia.org/wiki/Host_controller_interface_(USB,_Firewire)#Enhanced_Host_Controller_Interface
+
+How to use:
+  - git clone https://github.com/ahmadrasyidsalim/EHCI.git
+  - Move/Copy file to folder <buildroot> like this:
+    - source/target/linux/brcm63xx/patches-4.4
+Unfortunately , this patch only for gcc 5.4.0
+
+More about patch : https://wiki.openwrt.org/doc/devel/patches
+Have FUN & Keep Sharing
