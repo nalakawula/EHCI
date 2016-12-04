@@ -1,0 +1,27 @@
+--- a/arch/mips/bcm63xx/boards/board_bcm963xx.c
++++ b/arch/mips/bcm63xx/boards/board_bcm963xx.c
+@@ -16,6 +16,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/platform_data/b53.h>
+ #include <linux/rtl8367.h>
++#include <linux/delay.h>
+ #include <linux/spi/spi.h>
+ #include <asm/addrspace.h>
+ #include <bcm63xx_board.h>
+@@ -2529,6 +2530,16 @@ void __init board_bcm963xx_init(void)
+ 	u32 val;
+ 	struct bcm_hcs *hcs;
+ 	const struct of_device_id *board_match;
++	unsigned int * reg = (unsigned int *) 0xfffe150c;
++
++	/* Enhanced Host Controller Interface by ARS */
++	if (BCMCPU_IS_6358()) {
++		pr_info("Enhanced Host Controller Interface by ARS");
++		*reg &= ~0x02000000;
++		mdelay(1);
++		*reg |= 0x02000000;
++		pr_info("Done...\n");
++	}
+ 
+ 	/* read base address of boot chip select (0)
+ 	 * 6328/6362 do not have MPI but boot from a fixed address
