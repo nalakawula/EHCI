@@ -9,6 +9,9 @@ How to use:
   - git clone https://github.com/ahmadrasyidsalim/EHCI.git
   - Move/Copy file to folder <buildroot> like this:
     - <buildroot>/target/linux/brcm63xx/patches-4.4
+  - make clean
+  - make V=s > error.log
+
 Unfortunately , this patch only for gcc 5.4.0
 
 More about patch : https://wiki.openwrt.org/doc/devel/patches
